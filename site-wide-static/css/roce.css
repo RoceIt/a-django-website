@@ -1,0 +1,382 @@
+/* Using box-sizing everywhere. */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+
+html{
+    /* margin: 0; */
+    /* padding: 0; */
+    box-sizing:border-box
+}
+*,*:before,*:after{
+    box-sizing:inherit
+}
+
+/* The fix for the floats */
+/* .clearfix::after { */
+/*     content: ""; */
+/*     clear: both; */
+/*     display: table; */
+/* } */
+ /* top of page */
+
+body {
+    /* margin: 0; */
+    /* padding:0; */
+    font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans","Verdana","Arial","sans-serif";
+    background-attachment: fixed;
+}
+
+header.main {
+    /* position: fixed; */
+    /* top: 0; */
+    display: flex;
+    width: 100%;
+    padding: 0 .5em;
+    /* box-shadow: 0 4pt 4pt -2pt gray; */
+    /* align-items: flex-start; */
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0.2em;
+}
+
+.name_logo {
+    padding: 1em;
+    z-index: 999;
+}
+
+.header_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-begin;
+}
+
+.header_info p {
+    margin: 0;
+}
+
+#user_id {
+    display: inline-block;
+    padding: 0 1em
+}
+
+#cart {
+    display: inline-block;
+    margin: 0 .5em
+}
+
+nav {
+    position: relative;
+    /* top: -10px; */
+    display: flex;
+    justify-content: center;
+    background-color: BurlyWood;
+    /* margin: .5em 0; */
+}
+
+nav a {
+    display: block;
+    padding: .5em 1em;
+    text-decoration: none;
+    color: brown;
+    border-left: 3pt solid BurlyWood;
+    border-right: 3pt solid BurlyWood;
+    transition: border .7s;
+}
+
+nav a:hover {
+    /* font-weight: 500; */
+    border-left: 3pt solid #fc5a07; /* brown; /* red; */
+    border-right: 3pt solid #fc5a07; /* brown; /* red; */
+}
+
+nav .current {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 1200px) {
+    main {
+        width: 1200px;
+        margin: auto;}
+}
+main {
+    background-color: white;
+    /* margin-top: 0pt; */ /* nav is relative, so fill in the space /*
+    /* margin-bottom: 40pt; */
+}
+
+footer.main {
+    /* position: absolute; */
+    /* bottom: 0; */
+    display:flex;
+    width: 100%;
+    color: gray;
+    /* background: white; */
+    justify-content: center;
+}
+
+footer a {
+    /* position: absolute; */
+    /* bottom: 0; */
+    text-decoration: none;
+    font-size: 150%;
+    color: gray;
+    padding: .25em;
+}
+
+/* Homepage settings */
+
+
+main.home {
+    display: flex;
+    justify-content: space-around;
+}
+
+.homepage_big_container {
+    width: 40%;
+}
+
+.homepage_big {
+    width: 100%;
+    height: 100%;
+    border-radius: 12.5%;
+    padding: 1em;
+}
+
+.homepage_message {
+    width: 50%;
+    /* border: 40px double #fc5a07; */
+    /* border-image: url(../images/jar_seal_210_filled.png) 70 repeat; */
+    /* border-radius: 10%; */
+    margin: 1em;
+}
+
+.jar_ring_border {
+    border: 40px double #fc5a07;
+    border-image: url(../images/jar_seal_210_filled.png) 70 repeat;
+}
+
+/* order items ListView settings */
+
+main.listview_item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* padding: 1em; */
+}
+
+.item_as_listview_item {
+    width: 28%;
+    height: 28%;
+    min-width: 250px;
+    max-width: 350px;
+    margin: 2em;
+    /* padding: 2.5%; */
+    /*float: left;*/
+    /* background-color: white; */
+}
+.item_as_listview_item a {
+    text-decoration: none;
+}
+
+.item_as_listview_item img {
+    width: 100%;
+    height:100%;
+    border-radius: 12.5%;
+    margin-bottom: 2px;
+}
+.item_as_listview_item p {
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    /* padding: 5px; */
+    color:black;
+    border: 25px  solid transparent;
+    margin: -5px;
+    /* border-radius: 50%; */
+    /* transition: border-color 3s; */
+    /* outline: #fc5a07 double 5px; */
+}
+.item_as_listview_item:hover p {
+    border-color: #fc5a07;
+    border-image: url(../images/jar_seal_210_filled.png) 70 repeat;
+}
+
+/* foodproduct detail settings */
+
+figure.foodproduct_detail {
+   /* width: 100%; */
+}
+
+figure.foodproduct_detail img {
+    border-radius: 12.5%;
+}
+
+article.foodproduct_detail{
+    width: 50%;
+    /* border: 15px double #fc5a07; */
+    /* border-radius: 10%; */
+    margin: 1em;
+    padding: 1em;
+    /* flex: 1; */
+}
+
+/* login/new client pages */
+main.management_pages {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+main.management_pages>section {
+    display: flex;
+    flex-direction: column;
+    width: 28em;
+    min-width: 300px;
+    min-height: 500px;
+    margin: auto;
+    border: 2px solid BurlyWood;
+    border-radius: 7px;
+}
+
+main.management_pages.staff>section {
+    background-color: lightgreen;
+}
+
+main.management_pages header {
+    padding: 0.5em;
+    color: white;
+    /* color: brown; */
+    background-color: BurlyWood;
+}
+
+main.management_pages h1 {
+    margin-left: 10px;
+    font-size: 1.3em;
+}
+
+main.management_pages h2 {
+    margin-left: 10px;
+    font-size: 1.0em;
+}
+
+main.management_pages p {
+    margin: 0.5em;
+}
+
+main.management_pages article {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 35px;
+}
+
+main.management_pages form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+main.management_pages table {
+    width: 100%;
+}
+
+main.management_pages tr {
+    display: flex;
+    flex-direction: column;
+}
+
+main.management_pages th {
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-weight: normal;
+    text-align: left;
+}
+
+main.management_pages td input {
+    width: 100%;
+    padding: 5px;
+    border: 3px solid #ccc;
+    border-radius: 3px;
+
+}
+
+main.management_pages dl {
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+}
+
+main.management_pages dt {
+    display: inline;
+}
+
+main.management_pages dd {
+    display: inline;
+}
+
+main.management_pages address {
+    padding-left: 10px;
+}
+
+main.management_pages td input:focus {
+    border-style: solid;
+    border-color: BurlyWood;
+    /* border-radius: 3px; */
+}
+
+/* main.management_pages label, main.management_pages input { */
+/*     display: block; */
+/* } */
+
+/* main.management_pages label { */
+/*     margin-top: 20px; */
+/*     margin-bottom: 6px; */
+/* } */
+
+/* main.management_pages input { */
+/*     width: 90%; */
+/*     padding: 3px; */
+/* } */
+
+/* main.management_pages input:focus { */
+/*     border-style: solid; */
+/*     border-color: BurlyWood; */
+/*     border-radius: 3px; */
+/*     padding: 3px; */
+/* } */
+
+main.management_pages .button {
+    width: auto;
+    margin: auto;
+    font-size: 1em;
+    font: inherit;
+    border: 2px solid BurlyWood;
+    margin: 10px auto;
+    padding: 10px 30px;
+    background-color: Bisque;
+    border-radius: 3px;
+}
+
+main.management_pages a {
+    color: #777;
+    text-decoration: None;
+}
+
+main.management_pages .button:hover, main.management_pages .button:focus {
+    background-color: BurlyWood;
+    cursor: pointer;
+                                    }
+
+
+.errorlist {
+    color: red;
+}
+/* automatic forms */
+.helptext {
+    display: none;
+}

@@ -1,0 +1,11 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Staff management{% endblock %}
+{% block login_title  %}Staff management menu{% endblock %}
+
+{% block login_content %}
+    <a href="{% url 'orders:deliveryaddress_list' %}">Leveringsadressen</a>
+    <a href="{% url 'orders:add_delivery_address' %}">Leveringsadres toevoegen</a>
+    <a href="{% url 'orders:change_price_on_date' %}">Prijsverandering vanaf datum</a>
+    <a href="{% url 'orders:assembly_point_promotion' %}">Promotie voor groepslevering</a>
+    <a href="{% url 'orders:get_order_date' %}">Toon leveringen op datum</a>
+{% endblock %}

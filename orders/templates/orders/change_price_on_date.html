@@ -1,0 +1,12 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Prijs{% endblock %}
+{% block login_title %}Prijsverandering{% endblock %}
+{% block login_content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input class="button" type="Submit" value="Voeg toe" />
+    </form>
+{% endblock %}

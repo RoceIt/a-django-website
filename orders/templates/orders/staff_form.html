@@ -1,0 +1,12 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Staff{% endblock %}
+{% block login_title %}{{ title }}{% endblock %}
+{% block login_content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input class="button" type="Submit" value={{ submit_text|default:'submit text' }} />
+    </form>
+{% endblock %}

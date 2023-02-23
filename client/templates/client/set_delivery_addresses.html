@@ -1,0 +1,14 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Leveringsadres{% endblock %}
+{% block login_title %}Nieuw leveringsadres{% endblock %}
+{% block login_content %}
+    <form action="" method='post'>
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <p>
+        </table>
+        <input class="button" type="Submit", value="Klaar" />
+    </form>
+
+{% endblock %}

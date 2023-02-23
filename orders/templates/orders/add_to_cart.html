@@ -1,0 +1,7 @@
+<form class="addtocart" action="{% url action_view %}" name="order_{{ product }}">
+  {% csrf_token %}
+  <div class="cart_form">
+    {{ form.as_p }}
+  </div>
+  <p><input type='submit'  value='Add to cart' /></p>
+</form>

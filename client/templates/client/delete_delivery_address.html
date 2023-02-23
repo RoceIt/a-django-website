@@ -1,0 +1,16 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Leveringsadres{% endblock %}
+{% block login_title %}Leveringsadres verwijderen{% endblock %}
+{% block login_content %}
+    <form action="" method='post'>
+        {% csrf_token %}
+        <table>
+            <p>Bent u zeker dat u '{{ involved_address.address.address_name }}' uit je lijst met
+               leveringslokaties wil verwijderen</p>
+            <p>
+        </table>
+        <input type="hidden" name="address_id" value="{{ involved_address.id }}" />
+        <input class="button" type="Submit" value="Ja" />
+    </form>
+    <a class="button" href="{% url 'client:personal_info' %}">Nee</a>
+{% endblock %}

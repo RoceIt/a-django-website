@@ -1,0 +1,16 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Nieuwe gebruiker{% endblock %}
+{% block login_title %}Nieuwe gebruiker{% endblock %}
+{% block login_content %}
+    <p>Welkom, bedankt voor uw interesse in onze producten.</p>
+    <p>Met dit formulier kan u zich als gebruiker registreren.</p>
+    <form action="" method='post'>
+        {% csrf_token %}
+        <table>
+            {{ userform.as_table }}
+            {{ clientform.as_table }}
+            <!-- {{ addressform.as_table }} -->
+        </table>
+        <input class="button" type="Submit", value="Registreer" />
+    </form>
+{% endblock %}

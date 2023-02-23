@@ -1,0 +1,18 @@
+{% extends 'mb/base.html' %}
+
+{% block page_title %}Product overview{% endblock %}
+
+{% block main_content %}
+<main class="listview_item">
+  <!-- <div class="clearfix" > -->
+  {% for item in orderitem_list %}
+    <article class='item_as_listview_item'>
+      <a href={% url 'food:detail' pk=item.product.pk %}>
+        <img src='{{ item.product.web_photo.url }}' alt='a picture of me' />
+        <p> {{ item.product.name }} </p>
+      </a>
+    </article>
+    {% endfor %}
+  <!-- </div> -->
+</main>
+{% endblock %}

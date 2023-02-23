@@ -1,0 +1,79 @@
+from django.db import models
+
+from .intermediate_models import Quantity
+
+class Ingredient(models.Model):
+    name = models.CharField(
+        'name',
+        max_length=50,
+        help_text='unique name to identify this ingredient',
+        unique=True,
+    )
+    the_recepy = models.OneToOneField(
+        'Recepy',
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
+    )
+
+    def __str__(self):
+        return self.name
+
+class Recepy(models.Model):
+    name = models.CharField(
+        'name',
+        max_length=50,
+        help_text='Unique name to identify this recepy',
+    )
+    ingredients = models.ManyToManyField(
+        Ingredient,
+        through='IngredientLine',
+    )
+
+    def __str__(self):
+        return self.name
+
+class IngredientLine(Quantity):
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.PROTECT)
+    recepy = models.ForeignKey(Recepy, on_delete=models.PROTECT)
+
+class Packing(models.Model):
+    name = models.CharField(
+        'name',
+        max_length=50,
+    )
+    contents = models.SmallIntegerField(
+        'contents',
+        help_text='contents in milliliter')
+    weight = models.SmallIntegerField(
+        'weight',
+        help_text='weight in grams',
+    )
+    deposit = models.BooleanField(
+        'deposit',
+    )
+
+    def __str__(self):
+        return '{name} ({contents}ml)'.format(
+            name=self.name,
+            contents=self.contents,
+            )
+
+
+class FoodProduct(models.Model):
+    name = models.CharField(
+        'name',
+        max_length=50,
+        help_text='unique name to identify the product',
+        unique=True,
+    )
+    ingredient = models.ForeignKey(
+        Ingredient,
+        on_delete=models.PROTECT,
+    )
+    packing = models.ForeignKey(
+        Packing,
+        on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.name

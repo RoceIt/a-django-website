@@ -1,0 +1,13 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Gebruikersgegevens{% endblock %}
+{% block login_title %}Nieuw adres{% endblock %}
+{% block login_content %}
+    <form action="" method='post'>
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input class="button" type="Submit", value="Klaar" />
+    </form>
+
+{% endblock %}

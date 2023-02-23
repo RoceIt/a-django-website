@@ -1,0 +1,23 @@
+{#% extends 'mb/user_manage_base.html' %#}
+
+{#% block page_title %}{{ title }}{% endblock %#}
+{#% block login_title %}{{ title }}{% endblock %#}
+
+{#% block login_content %#}
+{% extends 'mb/base.html' %}
+{% block main_content %}
+    <main>
+        <h1>FAKE MOLLIE SERVER!!</h1>
+        <p>paying order {{ pk }}. </p>
+        <form action="{% url 'orders:mollie_verification' pk %}" method="post"
+              target="_blank">
+            {% csrf_token %}
+            <input type="radio" name="status" value="paid" checked="checked"> Paid</input><br>
+            <input type="radio" name="status" value="open"> Open</input><br>
+            <input type="radio" name="status" value="pending"> Pending</input> <br>
+            <input type="radio" name="status" value="cancelled">Cancelled</inpyt> <br/>
+            <input type="submit" value="ZEND STATUS VIA HOOK">
+        </form>
+        <a class="button" href="{% url 'orders:order_payed' pk %}">ZEND BETALING OK</a>
+    </main>
+{% endblock %}

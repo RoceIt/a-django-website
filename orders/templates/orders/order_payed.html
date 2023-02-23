@@ -1,0 +1,12 @@
+{#% extends 'mb/user_manage_base.html' %#}
+
+{#% block page_title %}{{ title }}{% endblock %#}
+{#% block login_title %}{{ title }}{% endblock %#}
+
+{#% block login_content %#}
+{% extends 'mb/base.html' %}
+{% block main_content %}
+    <main>
+        <p> thanks for your purchase. Order with id {{ order_id }} is OK!>
+    </main>
+{% endblock %}

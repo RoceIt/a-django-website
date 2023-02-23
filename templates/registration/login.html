@@ -1,0 +1,33 @@
+{% extends 'mb/user_manage_base.html' %}
+
+{% block page_title %}Aanmelden{% endblock %}
+{% block login_title %}Aanmelden{% endblock %}
+
+{% block login_content %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+  {% if form.errors %}
+    <strong>Jouw combinatie van gebruikersnaam en paswoord zijn niet gekend.</strong>
+  {% endif %}
+
+  {% if not next == "/" %}
+    {% if user.is_authenticated %}
+      <strong>U hebt niet de rechten om de gevraagde pagina te openen. Om verder te gaan
+        moet u inloggen als een gebruiker met de vereiste rechten.</strong>
+    {% else %}
+      <strong>U hebt niet de rechten om de gevraagde pagina te openen. Om verder te gaan
+        moet u inloggen als een gebruiker met de vereiste rechten.</strong>
+    {% endif %}
+  {% endif %}
+    <table>
+      {{ form }}
+    </table>
+    <input class="button" type="submit" value="Aanmelden" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+    <a class="button" href="{% url 'password_reset' %}">wachtwoord vergeten</a>
+    <a class="button" href="{% url 'client:new_client' %}">gebruiker aanmaken </a>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+# [START runtime]
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT mb.wsgi
+
+beta_settings:
+  cloud_sql_instances: madam-bocal-dev:europe-west1:madame-bocal
+
+runtime_config:
+  python_version: 3.6
+
+health_check:
+  enable_health_check: False
+  check_interval_sec: 8
+  timeout_sec: 4
+  unhealthy_threshold: 2
+  healthy_threshold: 2
+# [END runtime]

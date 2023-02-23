@@ -1,0 +1,80 @@
+{% extends 'mb/user_manage_base.html' %}
+{% load static %}
+{% block page_title %}Client info{% endblock %}
+{% block login_title  %}Gebruikersgegevens{% endblock %}
+
+{% block login_content %}
+    {% with client=user.client %}
+
+    <p><strong>Naam: </strong>
+        {{ client.title|default:"" }} {{ user.first_name }} {{ user.last_name }}
+    </p>
+
+    <p><strong>Email: </strong> {{ user.email }}
+        {% if 1 == 2 %}}
+            <a href="{% url 'client:set_address' %}">
+                <img src="{% static sw_change_item_icon %}" alt="Change" /></a>
+        {% endif %}
+    </p>
+
+    <p><strong>Telefoon: </strong>
+        {% if client.telephone %}
+            {{ client.telephone }}
+            <a href="{% url 'client:set_telephone' %}">
+                <img src="{% static sw_change_item_icon %}" alt="Change" />
+            </a>
+        {% else  %}
+            <a href="{% url 'client:set_telephone' %}">
+                <img src="{% static sw_add_item_icon %}" alt="Add" />
+            </a>
+        {% endif %}
+    </p>
+
+    <div>
+        <p><strong>Thuisadres: </strong>
+            {% if client.address %}
+                <a href="{% url 'client:set_address' %}">
+                    <img src="{% static sw_change_item_icon %}" alt="Change" /></a></p>
+                <address>
+                    {{ client.address.as_p }}
+                </address>
+            {% else  %}
+                <a href="{% url 'client:set_address' %}">
+                    <img src="{% static sw_add_item_icon %}" alt="Add" />
+                </a></p>
+            {% endif %}
+    </div>
+
+    {% endwith %}
+    {% with d_list=user.client.delivery_address_list %}
+        <div>
+            <p><strong>Leveringsadres{{ d_list|pluralize:'sen' }}:</strong></p>
+            <ul>
+                {% if d_list %}
+                    {% for address in d_list %}
+                        <li>
+                            {{ address.address.address_name }}
+                            <a href="{% url 'client:delete_delivery_address' address.id %}">
+                                <img src="{% static sw_delete_item_icon %}" alt="Delete" />
+                            </a>
+
+                        </li>
+                    {% endfor %}
+                {% endif %}
+                <li>
+                    <a href="{% url 'client:set_delivery_addresses' %}">
+                        <img src="{% static sw_add_item_icon %}" alt="Add" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    {% endwith %}
+   {% with nr_of_payed_items=user.client.payed_items.count %}
+    <div>
+        <p>
+            <strong>Bestelling{{ nr_of_payed_items|pluralize:'en' }}</strong>
+            <a href="{% url 'client:payed_orders' %}">
+                ({{ user.client.payed_items.count }})</a>
+   {% endwith %}
+
+{% endblock %}

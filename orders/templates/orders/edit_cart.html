@@ -1,0 +1,13 @@
+{% extends 'mb/user_manage_base.html' %}
+
+{% block page_title %}{{ title }}{% endblock %}
+{% block login_title %}Winkelkar: {{ deliveryaddress.address.address_name }}{% endblock %}
+
+{% block login_content %}
+    <form id="shopping_cart_form" method="post" action="">
+        {{ cart_formText }}
+
+    </form>
+    <a class="button" href="{% url 'orders:place_order' %}">Bestellen</a>
+
+{% endblock %}

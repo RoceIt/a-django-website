@@ -1,0 +1,62 @@
+{% load static %}
+{% load extra_cart_templates %}
+
+<!DOCTYPE html>
+<html lang='nl'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/roce.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="{% static "orders/js/cookie.js" %}"></script>
+    <script src="{% static "orders/js/csrfSafeAjax.js" %}"></script>
+    <script src="{% static "orders/js/cart.js" %}"></script>
+    <title> Madame Bocal - {% block page_title %}??base form??{% endblock %}</title>
+    <link rel="icon" href="{% static 'mb_favicon.jpg' %}" />
+
+    <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+  </head>
+  <!-- <body style="background-image: url('{% static 'images/wood_bckground_l1.png' %}');"> -->
+  <body style="background-image: url('{% static 'images/wooden-wall.png' %}');">
+    <header class="main">
+      <div class="name_logo">
+        <!-- <h1>Madam Bocal</h1> -->
+        <a href="{% url 'mb_home' %}">
+          <img src="{% static 'images/mymabo_bright_orange.png' %} " alt="Madam Bocal" height="222" width="222">
+        </a>
+      </div>
+      <div class="header_info">
+        <section id="user_id">
+          {% if user.is_authenticated %}
+          <p>Welkom {{ user.first_name }} {{ user.last_name }}</p>
+          <p><a href="{% url 'logout' %}">afmelden</a></p>
+          {% else %}
+          <p><a href="{% url 'login' %}">Inloggen</a></p>
+          <!--  <p><a href="{% url 'password_reset' %}">wachtwoord vergeten</a></p>
+                <p><a href="{% url 'client:new_client' %}">gebruiker aanmaken </a></p> -->
+          {% endif %}
+        </section>
+        <section id="cart">
+          <p>Cart items {% auto_updating_cart_item_counter %}</p>
+          <p>{% edit_cart_txt %}</p>
+        </section>
+      </div>
+      <!-- END HEADER -->
+    </header>
+    <nav>
+      {% include 'mb/menu_list.html' %}
+    </nav>
+      {% block main_content %}
+    <main class="{{ main }}">
+      This should be a main content block. Please inform the site owner about this
+      problem.
+    </main>
+      {% endblock %}
+    <footer class="main">
+      <a href="mailto:info@madame_bocal.be">info@madame_bocal.be</a>
+    </footer>
+  </body>
+</html>

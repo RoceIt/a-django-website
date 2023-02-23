@@ -1,0 +1,13 @@
+{% extends 'mb/user_manage_base.html' %}}
+
+{% block page_title %}Delivery addresses %}}{% endblock %}
+{% block login_title %}Delivery addresses: {{ deliveryaddress.address.address_name }}{% endblock %}
+
+{% block login_content %}
+    <ul>
+        {% for address in deliveryaddress_list %}
+            <li><a href="{% url 'orders:deliveryaddress_detail' address.id %}">
+                {{ address.address.address_name }}: {{ address.get_kind_display  }}
+            </a> </li>
+        {% endfor %}
+{% endblock %}

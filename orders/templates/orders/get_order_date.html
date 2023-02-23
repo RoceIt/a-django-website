@@ -1,0 +1,13 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}orders{% endblock %}
+{% block login_title %}orders on date{% endblock %}
+{% block login_content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input class="button" type="Submit" value="Toon" />
+
+    </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'mb/base.html' %}
+
+{% block page_title %}Product overview{% endblock %}
+
+{% block main_content %}
+<h1>Products</h1>
+<ul>
+  {% for product in foodproduct_list %}
+  <li><a href={% url 'food:detail' pk=product.pk %}>{{ product.name }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

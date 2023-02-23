@@ -1,0 +1,11 @@
+{% for grouptitle, cartform in cart_form.items %}
+        <p> {{ grouptitle }}</p>
+        {% for form in cartform %}
+        <ul>
+            <li>{{ form.number }} | {{ form.product_description}} <br />
+                {{ form.info_description}}
+                € {{ form.price}}
+            </li>
+        </ul>
+        {% endfor %}
+{% endfor %}

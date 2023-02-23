@@ -1,0 +1,31 @@
+{% extends 'mb/base.html' %}
+{% load extra_cart_templates %}
+
+{% block page_title %}{{ foodproduct.name }}{% endblock %}
+
+{% block main_content %}
+<main class="home">
+  <figure class="foodproduct_detail">
+    <img src='{{ foodproduct.web_photo.url }}' height='500' width='400' alt='a picture of me' />
+  </figure>
+  <article class="foodproduct_detail jar_ring_border">
+    <h1>{{ foodproduct.website_name }}</h1>
+    <p> {{ foodproduct.website_detail_text }} </p>
+    {% if ingredients %}
+      <p> <strong>Ingredienten</strong>: {{ ingredients }}
+    {% endif %}
+    {% if allergens %}
+        <p> <strong>Allergenen</strong>: {{ allergens }}
+    {% endif %}
+    {% if user.is_authenticated and user.client %}
+        {% add_to_cart_with_event_extra_requests_info_form foodproduct user.client %}
+        {#% add_to_cart_with_event_info_form foodproduct user.client %#}
+    {% else %}
+
+        {% add_to_cart_with_extra_requests_form foodproduct %}
+        {#% add_to_cart_form foodproduct %#}
+    {% endif %}
+  </article>
+</main>
+
+{% endblock %}

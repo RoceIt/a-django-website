@@ -1,0 +1,16 @@
+<table style="width:100%">
+    {% for orderline in orderlines %}
+        <tr>
+            <td>{{ orderline.number }}</td>
+            <td>
+                {% if orderline.number > 1 %}
+                    {{ orderline.orderitem.product.website_plural_name }}
+                {% else %}
+                    {{ orderline.orderitem.product.website_name }}
+                {% endif %}
+                {{ orderline.cart_info }}
+            </td>
+            <td>{{ orderline.price }}</td>
+        </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,11 @@
+<!-- <a href="{% url 'mb_home' %}">HOME</a> -->
+<a {% if check_menu_item == 'lunch' %}class="current" {% endif %}href="{% url 'orders:items' %}">LUNCH</a>
+<a {% if check_menu_item == 'dessert' %}class="current" {% endif %}href="{% url 'orders:desserts' %}">DESSERT</a>
+<a href="#top">FEESTJE</a>
+<a href="#top">BESTELLEN</a>
+{% if user.is_authenticated %}
+    <a {% if check_menu_item == 'info' %}class="current" {% endif %}href="{% url 'client:personal_info' %}">INFO</a>
+{% endif %}
+{% if user.is_staff %}
+    <a {% if check_menu_item == 'staff' %}class="current" {% endif %}href="{% url 'staff_menu' %}">STAFF</a>
+{% endif %}

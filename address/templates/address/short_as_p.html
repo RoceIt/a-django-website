@@ -1,0 +1,11 @@
+<p>{{ address.name }}</p>
+{% if address.name2 %}
+    <p>{{ address.name2 }}</p>
+{% endif %}
+<p>
+    {{ address.street }} {{ address.number }}
+    {% if addres.bus %}
+        bus: {{ address.bus }}
+    {% endif %}
+</p>
+<p>{{ address.postal_code }} {{ address.city }}</p>

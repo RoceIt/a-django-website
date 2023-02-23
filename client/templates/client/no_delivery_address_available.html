@@ -1,0 +1,7 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Leveringsadres{% endblock %}
+{% block login_title %}Nieuw leveirngsadres{% endblock %}
+{% block login_content %}
+    <p>Er zijn momenteel geen nieuwe leveringsadressen beschikbaar.</p>
+    <a class="button" href="{% url 'client:personal_info' %}">Terug</a>
+{% endblock %}

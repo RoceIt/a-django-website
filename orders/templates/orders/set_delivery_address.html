@@ -1,0 +1,15 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Leveringsadres{% endblock %}
+{% block login_title %}Nieuw leveringsadres{% endblock %}
+{% block login_content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input class="button" type="Submit" value="Klaar" />
+        <input type="hidden" value="orders:add_delivery_address" />
+    </form>
+    <a class="button" href="{% url 'address:address_form' %}?next=orders:add_delivery_address">Adres toevoegen</a>
+
+{% endblock %}

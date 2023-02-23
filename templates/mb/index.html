@@ -1,0 +1,14 @@
+{% extends 'mb/base.html' %}
+{% load static %}
+{% block page_title %}Home{% endblock %}
+
+{% block main_content %}
+<main class="home">
+  <figure class="homepage_big_container">
+    <img class="homepage_big" src="{% static 'images/homepage_big1'%}" alt="Madame Bocal">
+  </figure>
+  <article class="homepage_message jar_ring_border">
+    {{ homepage_message }}
+  </article>
+</main>
+{% endblock %}

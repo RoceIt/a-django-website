@@ -1,0 +1,8 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Nieuwe gebruiker{% endblock %}
+{% block login_title %}Nieuwe gebruiker{% endblock %}
+{% block login_content %}
+    <p>De nieuwe gebruiker is succesvol aangemaakt. Klik op 'aanmelden' om
+        verder te gaan.</p>
+    <a class="button" href="{% url 'login' %}">Aanmelden</a>
+{% endblock %}

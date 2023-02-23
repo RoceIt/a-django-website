@@ -1,0 +1,10 @@
+{% extends "mb/user_manage_base.html" %}
+{% block page_title %}{{ title }}{% endblock %}
+{% block login_title %}Uitloggen{% endblock %}
+
+{% block login_content %}
+<p>U bent niet meer ingelogd. Bedankt om onze site vandaag te bezoeken!</p>
+<a class="button" href="{% url 'mb_home' %}">Verder</a>
+<a class="button" href="{% url 'login' %}">Inloggen</a>
+
+{% endblock %}

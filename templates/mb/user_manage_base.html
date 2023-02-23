@@ -1,0 +1,17 @@
+{% extends "mb/base.html" %}
+
+{% block main_content %}
+<main class="management_pages{% if user.is_staff %} staff{% endif %}">
+  <section>
+    <header>
+      <h1>Madame Bocale beheer</h1>
+      <h2>{% block login_title %}!! login title here !! {% endblock %}</h2>
+    </header>
+    <article>
+    {% block login_content %}
+    wat text
+    {% endblock %}
+    </article>
+  </section>
+</main>
+{% endblock %}

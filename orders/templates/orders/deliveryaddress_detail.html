@@ -1,0 +1,17 @@
+{% extends 'mb/user_manage_base.html' %}}
+
+{% block page_title %}Delivery addresses {% endblock %}
+{% block login_title %}Delivery address: {{ deliveryaddress.address.address_name }}{% endblock %}
+
+{% block login_content %}
+    {{ deliveryaddress.address.as_p }}
+    <p><strong>Type:</strong> {{ deliveryaddress.get_kind_display }} </p>
+    <p><strong>Leveringsdata:</strong>
+    <ul>
+        {% for event in scheduled_deliveries  %}
+            <li>{{ event.safe_start_date }}</li>
+        {% endfor %}
+    </ul>
+    <a class="button" href="{% url 'orders:add_delivery_date' deliveryaddress.id %}">add date</a>
+    <a class="button" href="{% url 'orders:deliveryaddress_list' %}">back</a>
+{% endblock %}

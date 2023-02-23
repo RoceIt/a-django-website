@@ -1,0 +1,71 @@
+* settings
+
+** language code.
+   Googled to find appropriate candidate: nl-BE
+** time zone
+   Googled to find appropriate canditate: Europe/Brussels
+** database
+   Using the default sqlite3
+** staticfiles
+   Added STATICFILES_DIRS list to introduce a directory static for non
+   application specific static files.
+
+* urls configurations
+
+** main urlconf
+   Added an 'empty' pattern and made it use the index view in the
+   view.py file I created in the mb/mb folder.
+
+* views
+
+** mb/views
+   Where to put a general homepage with very general content? For now
+   just created a view in the mb/mb directory.
+*** index
+    The view for the homepage
+
+* templates
+** templates/mb/
+
+*** base.html
+    Should become the base framework for every view.
+
+**** variables
+     - page title: to be added in the title tag
+
+**** static content loaded
+     - mb_favicon.jpg: loaded from the static directory. The favicon to
+       show.
+
+** templates/regristration
+   Templates to generate your own interfaces to let a user change or
+   reset it's passwords.
+* static content
+
+** static/
+   mb_favicon.jpg: the favicon used in the base template
+
+* tree
+
+** mb
+    by django-admin startproject mb
+*** __init__.py
+    by django-admin startproject mb
+*** settings.py
+    by django-admin startproject mb
+*** urls.py
+    by django-admin startproject mb
+*** views.py
+    by myself for the homepage
+*** wsgi.py
+    by django-admin startproject mb
+** static
+   by myself for general purpose static files
+*** mb_favicon.jpg
+    the favicon
+** templates
+   by myself for general purpose templates
+*** mb
+    as namespace
+**** base.html
+     base framework

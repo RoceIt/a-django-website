@@ -1,0 +1,8 @@
+{% extends 'mb/user_manage_base.html' %}
+{% block page_title %}Gebruikersgegevens{% endblock %}
+{% block login_title %}Betaalde leveringen{% endblock %}
+{% block login_content %}
+    {{ orderlist }}
+    <a class="button" href="{% url 'client:personal_info'%}">Terug</a>
+
+{% endblock %}

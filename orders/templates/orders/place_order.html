@@ -1,0 +1,23 @@
+{#% extends 'mb/user_manage_base.html' %#}
+
+{#% block page_title %}{{ title }}{% endblock %#}
+{#% block login_title %}{{ title }}{% endblock %#}
+
+{#% block login_content %#}
+{% extends 'mb/base.html' %}
+{% block main_content %}
+    <main>
+        <h2>{{ order.client |default:'no order client?' }}</h2>
+        {#{ order.as_table }#}
+        {{ order.as_category_table }}
+        <p>Prijs producten: {{ order.orderitem_total }}</p>
+        <p>Statiegeld: {{ order.deposit_total }}</p>
+        {% with order.deposit_refund as refund %}
+            {% if refund %}
+                <p>Retour statiegeld: {{ refund }}</p>
+            {% endif %}
+        {% endwith %}
+        <p><strong>totaal: </strong>{{ order.total }}</p>
+        <a class="button" href="{% url 'orders:pay_order' order.id %}">Betalen</a>
+    </main>
+{% endblock %}
